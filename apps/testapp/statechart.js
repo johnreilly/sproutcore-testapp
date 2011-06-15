@@ -1,10 +1,10 @@
 TestApp.statechart = SC.Statechart.create({
-  initialState: 'loggedOut',
+  initialState: 'signin',
   
-  loggedOut: SC.State.extend({
+  signin: SC.State.extend({
     
     enterState: function(){
-      console.log('ENTER STATE: loggedOut');
+      console.log('ENTER STATE: signin');
       this.set('pane', SC.TemplatePane.append({
         layerId: 'test_app',
         templateName: 'sign_in'
@@ -12,7 +12,7 @@ TestApp.statechart = SC.Statechart.create({
     },
     
     exitState: function(){
-      console.log('EXIT STATE: loggedOut');
+      console.log('EXIT STATE: signin');
       this.get('pane').remove();
     },
     
@@ -22,27 +22,27 @@ TestApp.statechart = SC.Statechart.create({
       var user = credentials;
       TestApp.userController.set('content', user);
       
-      this.gotoState('loggedIn');
+      this.gotoState('main');
     }
   }),
   
-  loggedIn: SC.State.extend({
+  main: SC.State.extend({
     
     enterState: function(){
-      console.log('ENTER STATE: loggedIn');
+      console.log('ENTER STATE: main');
       this.set('pane', SC.TemplatePane.append({
         layerId: 'test_app',
         templateName: 'main_app'
       }));
     },
     exitState: function(){
-      console.log('EXIT STATE: loggedIn');
+      console.log('EXIT STATE: main');
       this.get('pane').remove();
     }, 
     
     tryLogout: function(){
       TestApp.userController.set('content', null);
-      this.gotoState('loggedOut');
+      this.gotoState('signin');
     }
   })
 });
