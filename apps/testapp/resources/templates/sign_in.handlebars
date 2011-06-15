@@ -1,0 +1,19 @@
+{{#view TestApp.SignInView}}
+  <h1>Please Sign in...</h1>
+
+  <div>
+  <label for="username">User Name:</label>
+  <input id="username" type="text" />
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" />
+  </div>
+
+  {{#view SC.Button action="signIn"}}
+    <button>Sign IN</button>
+  {{/view}}
+
+
+{{/view}}
