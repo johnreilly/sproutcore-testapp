@@ -27,7 +27,10 @@ TestApp.statechart = SC.Statechart.create({
   }),
   
   main: SC.State.extend({
-    
+    // Assuming this app will have many states as time goes on, is there a way 
+    // for all states to have some sort of before filter that would check if
+    // there is a valid user set on userController? I'm thinking this would be
+    // important if users can use routing to bookmark into a particular state... 
     enterState: function(){
       console.log('ENTER STATE: main');
       this.set('pane', SC.TemplatePane.append({

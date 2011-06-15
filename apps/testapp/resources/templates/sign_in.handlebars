@@ -11,6 +11,10 @@
     <input id="password" type="password" />
   </div>
 
+  <!--
+    Is this the correct way to set up a form? The button doesn't seem to behave like a button
+    should. The view surrounding the button receives the action, not the button element itself.
+  -->
   {{#view SC.Button action="signIn"}}
     <button>Sign IN</button>
   {{/view}}
